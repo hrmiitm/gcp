@@ -179,6 +179,6 @@
     "href": "terminal-sidebar.html",
     "title": "GCP by HRM",
     "section": "",
-    "text": "&lt;h4&gt;WSL Terminal&lt;/h4&gt;\n&lt;button id=\"close-terminal\" class=\"close-btn\"&gt;&times;&lt;/button&gt;\n\n\n&lt;iframe \n  src=\"http://localhost:7681\" \n  class=\"terminal-frame\"\n  id=\"terminal-iframe\"\n  title=\"Interactive Bash Terminal\"\n  sandbox=\"allow-same-origin allow-scripts allow-forms allow-pointer-lock allow-modals allow-popups\"\n  allow=\"clipboard-read; clipboard-write\"\n  frameborder=\"0\"&gt;\n&lt;/iframe&gt;\n\n\n\n⚡ Terminal"
+    "text": "&lt;iframe \n  src=\"http://localhost:7681\" \n  class=\"terminal-frame\"\n  id=\"terminal-iframe\"\n  title=\"Interactive Bash Terminal\"\n  sandbox=\"allow-same-origin allow-scripts allow-forms allow-pointer-lock allow-modals allow-popups\"\n  allow=\"clipboard-read; clipboard-write\"\n  frameborder=\"0\"&gt;\n&lt;/iframe&gt;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n⚡ Terminal"
   }
 ]

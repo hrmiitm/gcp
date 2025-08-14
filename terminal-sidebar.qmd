@@ -4,11 +4,7 @@ format: html
 ---
 
 <div id="terminal-sidebar" class="terminal-sidebar hidden">
-  <div class="sidebar-header">
-    <h4>WSL Terminal</h4>
-    <button id="close-terminal" class="close-btn">&times;</button>
-  </div>
-  <div class="terminal-container">
+  <div class="terminal-container" id="terminal-container">
     <iframe 
       src="http://localhost:7681" 
       class="terminal-frame"
@@ -19,166 +15,341 @@ format: html
       frameborder="0">
     </iframe>
   </div>
+  <!-- Resize handles -->
+  <div class="resize-handle resize-handle-n"></div>
+  <div class="resize-handle resize-handle-s"></div>
+  <div class="resize-handle resize-handle-w"></div>
+  <div class="resize-handle resize-handle-e"></div>
+  <div class="resize-handle resize-handle-nw"></div>
+  <div class="resize-handle resize-handle-ne"></div>
+  <div class="resize-handle resize-handle-sw"></div>
+  <div class="resize-handle resize-handle-se"></div>
 </div>
 
 <button id="toggle-terminal" class="terminal-toggle-btn">
-  <span class="toggle-icon">⚡</span> Terminal
+  <span class="toggle-icon">⚡</span>
+  <span class="toggle-text">Terminal</span>
 </button>
 
 <style>
+/* Import beautiful fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Beautiful Borderless Terminal */
 .terminal-sidebar {
   position: fixed;
-  right: 0;
-  top: 0;
-  width: 400px;
-  height: 100vh;
-  background: #1e1e1e;
-  border-left: 2px solid #333;
+  right: 50px;
+  top: 50px;
+  width: 450px;
+  height: 500px;
+  background: rgba(10, 10, 15, 0.4); /* 60% transparent */
+  backdrop-filter: blur(30px) saturate(1.2);
+  -webkit-backdrop-filter: blur(30px) saturate(1.2);
+  border: none; /* Completely removed border */
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 2px 20px rgba(255, 255, 255, 0.03) inset;
   z-index: 1000;
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
+  transform: scale(0) translateX(100px) translateY(-100px);
+  opacity: 50;
+  transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  min-width: 300px;
+  min-height: 250px;
+  will-change: transform, opacity;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .terminal-sidebar.visible {
-  transform: translateX(0);
+  transform: scale(1) translateX(0) translateY(0);
+  opacity: 0.8;
 }
 
-.terminal-sidebar.hidden {
-  transform: translateX(100%);
-}
-
-.sidebar-header {
-  background: #2d2d2d;
-  padding: 10px 15px;
-  border-bottom: 1px solid #333;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.sidebar-header h4 {
-  color: #fff;
-  margin: 0;
-  font-size: 14px;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 0;
-  width: 25px;
-  height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.close-btn:hover {
-  background: #ff4444;
-  border-radius: 3px;
-}
-
+/* Clean Terminal Container */
 .terminal-container {
   flex: 1;
-  padding: 10px;
+  padding: 5px;
+  background: transparent;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.terminal-container:active {
+  cursor: grabbing;
 }
 
 .terminal-frame {
   width: 100%;
   height: 100%;
-  border: 1px solid #333;
-  border-radius: 4px;
-  background: #000;
+  border: none; /* Removed terminal frame border */
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.6); /* More transparent terminal background */
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.25) inset;
+  backdrop-filter: blur(15px);
+  font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Menlo', monospace;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
 }
 
+/* Enhanced Toggle Button with Better Typography */
 .terminal-toggle-btn {
   position: fixed;
-  right: 20px;
-  top: 20px;
-  background: #007acc;
+  right: 30px;
+  top: 30px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
   color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  border: none; /* Removed toggle button border */
+  padding: 16px 24px;
+  border-radius: 32px;
   cursor: pointer;
   z-index: 1001;
-  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
+  gap: 12px;
+  box-shadow: 
+    0 12px 32px rgba(102, 126, 234, 0.25),
+    0 6px 16px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(20px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  user-select: none;
+  letter-spacing: 0.5px;
 }
 
 .terminal-toggle-btn:hover {
-  background: #005999;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 20px 50px rgba(102, 126, 234, 0.35),
+    0 10px 24px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, rgba(123, 143, 247, 0.9) 0%, rgba(139, 89, 196, 0.9) 100%);
+}
+
+.terminal-toggle-btn:active {
+  transform: translateY(-1px) scale(1.02);
 }
 
 .toggle-icon {
-  font-size: 16px;
+  font-size: 18px;
+  animation: pulse 3s infinite;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
 }
 
-/* Responsive design */
+.toggle-text {
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: scale(1.08);
+  }
+}
+
+/* Subtle Resize Handles */
+.resize-handle {
+  position: absolute;
+  background: transparent;
+  z-index: 15;
+  transition: background 0.3s ease;
+}
+
+.resize-handle:hover {
+  background: rgba(102, 126, 234, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.resize-handle-n, .resize-handle-s {
+  left: 6px;
+  right: 6px;
+  height: 6px;
+  cursor: ns-resize;
+}
+
+.resize-handle-n { 
+  top: -3px; 
+  border-radius: 3px 3px 0 0;
+}
+.resize-handle-s { 
+  bottom: -3px;
+  border-radius: 0 0 3px 3px;
+}
+
+.resize-handle-w, .resize-handle-e {
+  top: 6px;
+  bottom: 6px;
+  width: 6px;
+  cursor: ew-resize;
+}
+
+.resize-handle-w { 
+  left: -3px;
+  border-radius: 3px 0 0 3px;
+}
+.resize-handle-e { 
+  right: -3px;
+  border-radius: 0 3px 3px 0;
+}
+
+.resize-handle-nw, .resize-handle-ne,
+.resize-handle-sw, .resize-handle-se {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.resize-handle-nw { 
+  top: -5px; 
+  left: -5px; 
+  cursor: nw-resize;
+}
+.resize-handle-ne { 
+  top: -5px; 
+  right: -5px; 
+  cursor: ne-resize;
+}
+.resize-handle-sw { 
+  bottom: -5px; 
+  left: -5px; 
+  cursor: sw-resize;
+}
+.resize-handle-se { 
+  bottom: -5px; 
+  right: -5px; 
+  cursor: se-resize;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .terminal-sidebar {
-    width: 100vw;
+    right: 10px !important;
+    top: 10px !important;
+    width: calc(100vw - 20px) !important;
+    height: calc(100vh - 20px) !important;
+    border-radius: 16px;
+    background: rgba(10, 10, 15, 0.5);
   }
   
   .terminal-toggle-btn {
-    right: 10px;
-    top: 10px;
-    padding: 8px 12px;
-    font-size: 12px;
+    right: 20px;
+    top: 20px;
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+  
+  .resize-handle {
+    display: none;
   }
 }
 
-/* Overlay for mobile */
+/* Beautiful Overlay */
 .terminal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
   z-index: 999;
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
 }
 
 .terminal-overlay.visible {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Performance Optimized Dragging */
+.terminal-sidebar.dragging {
+  transition: none;
+  user-select: none;
+  will-change: transform;
+}
+
+/* Enhanced Typography for Terminal Content */
+.terminal-sidebar * {
+  font-variant-ligatures: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>
 
 <script>
+// High-performance throttle function
+function throttle(func, limit) {
+  let inThrottle;
+  return function() {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+}
+
+// RequestAnimationFrame-based smooth updates
+function smoothUpdate(callback) {
+  let ticking = false;
+  return function() {
+    const args = arguments;
+    const context = this;
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        callback.apply(context, args);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   const sidebar = document.getElementById('terminal-sidebar');
   const toggleBtn = document.getElementById('toggle-terminal');
-  const closeBtn = document.getElementById('close-terminal');
+  const terminalContainer = document.getElementById('terminal-container');
   const iframe = document.getElementById('terminal-iframe');
   
-  // Create overlay for mobile
+  let isDragging = false;
+  let isResizing = false;
+  let startX, startY, startWidth, startHeight, startLeft, startTop;
+  let currentResizeHandle = null;
+
+  // Create overlay
   const overlay = document.createElement('div');
   overlay.className = 'terminal-overlay';
   overlay.id = 'terminal-overlay';
   document.body.appendChild(overlay);
-  
+
   function openSidebar() {
     sidebar.classList.remove('hidden');
     sidebar.classList.add('visible');
     
-    // Show overlay on mobile
     if (window.innerWidth <= 768) {
       overlay.classList.add('visible');
     }
     
-    // Focus terminal
     setTimeout(() => {
       iframe.focus();
       try {
@@ -188,14 +359,14 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }, 300);
   }
-  
+
   function closeSidebar() {
     sidebar.classList.remove('visible');
     sidebar.classList.add('hidden');
     overlay.classList.remove('visible');
   }
-  
-  // Toggle button click
+
+  // Toggle functionality
   toggleBtn.addEventListener('click', function() {
     if (sidebar.classList.contains('visible')) {
       closeSidebar();
@@ -203,25 +374,123 @@ document.addEventListener('DOMContentLoaded', function() {
       openSidebar();
     }
   });
-  
-  // Close button click
-  closeBtn.addEventListener('click', closeSidebar);
-  
-  // Close on overlay click (mobile)
+
+  // Drag functionality
+  terminalContainer.addEventListener('mousedown', function(e) {
+    if (e.target.tagName === 'IFRAME') return;
+    
+    isDragging = true;
+    sidebar.classList.add('dragging');
+
+    const rect = sidebar.getBoundingClientRect();
+    startX = e.clientX - rect.left;
+    startY = e.clientY - rect.top;
+    
+    e.preventDefault();
+  });
+
+  // Optimized resize handles
+  const resizeHandles = document.querySelectorAll('.resize-handle');
+  resizeHandles.forEach(handle => {
+    handle.addEventListener('mousedown', function(e) {
+      isResizing = true;
+      currentResizeHandle = handle.className;
+      sidebar.classList.add('dragging');
+
+      const rect = sidebar.getBoundingClientRect();
+      startX = e.clientX;
+      startY = e.clientY;
+      startWidth = rect.width;
+      startHeight = rect.height;
+      startLeft = rect.left;
+      startTop = rect.top;
+
+      e.preventDefault();
+      e.stopPropagation();
+    });
+  });
+
+  // High-performance drag and resize
+  const handleMouseMove = smoothUpdate(function(e) {
+    if (isDragging) {
+      const newLeft = e.clientX - startX;
+      const newTop = e.clientY - startY;
+
+      const maxLeft = window.innerWidth - sidebar.offsetWidth;
+      const maxTop = window.innerHeight - sidebar.offsetHeight;
+
+      sidebar.style.left = Math.min(Math.max(0, newLeft), maxLeft) + 'px';
+      sidebar.style.top = Math.min(Math.max(0, newTop), maxTop) + 'px';
+      sidebar.style.right = 'auto';
+    }
+
+    if (isResizing) {
+      const deltaX = e.clientX - startX;
+      const deltaY = e.clientY - startY;
+
+      let newWidth = startWidth;
+      let newHeight = startHeight;
+      let newTop = startTop;
+      let newLeft = startLeft;
+
+      if (currentResizeHandle.includes('resize-handle-e')) {
+        newWidth = Math.max(300, startWidth + deltaX);
+      }
+      if (currentResizeHandle.includes('resize-handle-w')) {
+        newWidth = Math.max(300, startWidth - deltaX);
+        newLeft = startLeft + deltaX;
+      }
+      if (currentResizeHandle.includes('resize-handle-s')) {
+        newHeight = Math.max(250, startHeight + deltaY);
+      }
+      if (currentResizeHandle.includes('resize-handle-n')) {
+        newHeight = Math.max(250, startHeight - deltaY);
+        newTop = startTop + deltaY;
+      }
+
+      sidebar.style.width = newWidth + 'px';
+      sidebar.style.height = newHeight + 'px';
+      sidebar.style.top = Math.min(Math.max(0, newTop), window.innerHeight - newHeight) + 'px';
+      sidebar.style.left = Math.min(Math.max(0, newLeft), window.innerWidth - newWidth) + 'px';
+      sidebar.style.right = 'auto';
+    }
+  });
+
+  document.addEventListener('mousemove', handleMouseMove);
+
+  document.addEventListener('mouseup', function() {
+    if (isDragging || isResizing) {
+      sidebar.classList.remove('dragging');
+      isDragging = false;
+      isResizing = false;
+      currentResizeHandle = null;
+    }
+  });
+
+  // Overlay and escape key
   overlay.addEventListener('click', closeSidebar);
   
-  // Close on Escape key
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && sidebar.classList.contains('visible')) {
       closeSidebar();
     }
   });
-  
-  // Handle window resize
-  window.addEventListener('resize', function() {
+
+  // Responsive handling
+  window.addEventListener('resize', throttle(function() {
     if (window.innerWidth > 768) {
       overlay.classList.remove('visible');
+    } else if (sidebar.classList.contains('visible')) {
+      overlay.classList.add('visible');
     }
-  });
+  }, 100));
+
+  // Initialize positioning
+  setTimeout(() => {
+    const initRect = sidebar.getBoundingClientRect();
+    sidebar.style.left = initRect.left + 'px';
+    sidebar.style.top = initRect.top + 'px';
+    sidebar.style.right = 'auto';
+  }, 100);
 });
 </script>
