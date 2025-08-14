@@ -20,6 +20,7 @@ format:
     controls-layout: bottom-right
     transition: slide
     background-transition: fade
+include-after-body: ../terminal-sidebar.qmd
 ---
 
 ## 🌟 Welcome to GCP Journey! {.center}

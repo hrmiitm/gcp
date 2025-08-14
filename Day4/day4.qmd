@@ -1,0 +1,89 @@
+---
+title: "Interactive Bash Terminal"
+format: 
+  html:
+    css: terminal-styles.css
+    theme: dark
+---
+
+## Live WSL Bash Terminal
+
+This page provides direct access to your WSL bash environment through a web-based terminal powered by ttyd.
+
+### Terminal Interface
+
+<div class="terminal-container" onclick="document.getElementById('terminal-iframe').focus()">
+  <iframe 
+    src="http://localhost:7681" 
+    class="terminal-frame"
+    id="terminal-iframe"
+    title="Interactive Bash Terminal"
+    sandbox="allow-same-origin allow-scripts allow-forms allow-pointer-lock allow-modals allow-popups"
+    allow="clipboard-read; clipboard-write"
+    frameborder="0">
+  </iframe>
+</div>
+
+<script>
+function resizeTerminal(size) {
+  const iframe = document.getElementById('terminal-iframe');
+  const container = document.querySelector('.terminal-container');
+  
+  switch(size) {
+    case 'small':
+      iframe.style.height = '300px';
+      container.style.width = '80%';
+      break;
+    case 'medium':
+      iframe.style.height = '500px';
+      container.style.width = '90%';
+      break;
+    case 'large':
+      iframe.style.height = '700px';
+      container.style.width = '100%';
+      break;
+    case 'fullscreen':
+      iframe.style.height = '80vh';
+      container.style.width = '100vw';
+      container.style.position = 'fixed';
+      container.style.top = '0';
+      container.style.left = '0';
+      container.style.zIndex = '9999';
+      break;
+  }
+}
+
+// Enhanced focus handling
+window.addEventListener('load', function() {
+  const iframe = document.getElementById('terminal-iframe');
+  
+  iframe.focus();
+  
+  iframe.addEventListener('click', function() {
+    this.focus();
+  });
+  
+  iframe.onload = function() {
+    try {
+      this.contentWindow.focus();
+    } catch(e) {
+      console.log('Cannot focus iframe content due to cross-origin restrictions');
+    }
+  };
+});
+</script>
+
+### Usage Instructions
+
+- **Click inside the terminal** to start typing commands
+- **Use resize buttons** above the terminal to adjust size  
+- **Right-click** in terminal for copy/paste options
+- **Press F11** in the iframe for full browser terminal mode
+
+::: {.callout-warning}
+**Troubleshooting**: If the terminal doesn't respond to input:
+1. **MOST IMPORTANT**: Ensure ttyd is running with writable mode: `ttyd -W -p 7681 bash`
+2. Try refreshing the page
+3. Click directly in the terminal area
+4. Check that port 7681 is accessible
+:::

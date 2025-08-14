@@ -1,0 +1,140 @@
+.terminal-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  background: #1e1e1e;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.terminal-header {
+  background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+  user-select: none;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-buttons span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: block;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.terminal-buttons span:hover {
+  opacity: 0.8;
+}
+
+.btn-close {
+  background: #ff5f57;
+}
+
+.btn-minimize {
+  background: #ffbd2e;
+}
+
+.btn-maximize {
+  background: #28ca42;
+}
+
+.terminal-title {
+  color: #ffffff;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.size-btn {
+  background: #404040;
+  color: #ffffff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.size-btn:hover {
+  background: #505050;
+}
+
+.terminal-frame {
+  width: 100%;
+  height: 500px;
+  border: none;
+  background: #000000;
+  display: block;
+  transition: height 0.3s ease;
+}
+
+/* Interactive focus styling */
+.terminal-frame:focus {
+  outline: none;
+}
+
+.terminal-container:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .terminal-container {
+    width: 95%;
+    margin: 1rem auto;
+  }
+  
+  .terminal-frame {
+    height: 400px;
+  }
+  
+  .terminal-controls {
+    display: none;
+  }
+  
+  .terminal-title {
+    font-size: 11px;
+  }
+}
+
+/* Dark theme adjustments */
+.quarto-dark .terminal-container {
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+}
+
+/* Fullscreen mode styling */
+.terminal-container.fullscreen {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 9999 !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+
+.terminal-container.fullscreen .terminal-frame {
+  height: calc(100vh - 60px) !important;
+}

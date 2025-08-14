@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Interactive Python with JupyterLite – GCP by HRM</title>
+<title>Interactive Bash Terminal – GCP by HRM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -36,14 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ab8ddf18260936e3a5386d29c79ed20.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-64a89669c3516b6e2b2f1e17ceabfc6e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-5ab8ddf18260936e3a5386d29c79ed20.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-75c8a056d4bf390f375c447abf0a17b1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,171 +70,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="terminal-styles.css">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
-    const toggleBodyColorMode = (bsSheetEl) => {
-      const mode = bsSheetEl.getAttribute("data-mode");
-      const bodyEl = window.document.querySelector("body");
-      if (mode === "dark") {
-        bodyEl.classList.add("quarto-dark");
-        bodyEl.classList.remove("quarto-light");
-      } else {
-        bodyEl.classList.add("quarto-light");
-        bodyEl.classList.remove("quarto-dark");
-      }
-    }
-    const toggleBodyColorPrimary = () => {
-      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
-      if (bsSheetEl) {
-        toggleBodyColorMode(bsSheetEl);
-      }
-    }
-    const setColorSchemeToggle = (alternate) => {
-      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-      for (let i=0; i < toggles.length; i++) {
-        const toggle = toggles[i];
-        if (toggle) {
-          if (alternate) {
-            toggle.classList.add("alternate");
-          } else {
-            toggle.classList.remove("alternate");
-          }
-        }
-      }
-    };
-    const toggleColorMode = (alternate) => {
-      // Switch the stylesheets
-      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
-      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-      manageTransitions('#quarto-margin-sidebar .nav-link', false);
-      if (alternate) {
-        // note: dark is layered on light, we don't disable primary!
-        enableStylesheet(alternateStylesheets);
-        for (const sheetNode of alternateStylesheets) {
-          if (sheetNode.id === "quarto-bootstrap") {
-            toggleBodyColorMode(sheetNode);
-          }
-        }
-      } else {
-        disableStylesheet(alternateStylesheets);
-        enableStylesheet(primaryStylesheets)
-        toggleBodyColorPrimary();
-      }
-      manageTransitions('#quarto-margin-sidebar .nav-link', true);
-      // Switch the toggles
-      setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
-      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-        manageTransitions("body", false);
-        window.scrollTo(0, 1);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          manageTransitions("body", true);
-        }, 40);
-      }
-    }
-    const disableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        stylesheet.rel = 'disabled-stylesheet';
-      }
-    }
-    const enableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
-          stylesheet.rel = 'stylesheet';
-        }
-      }
-    }
-    const manageTransitions = (selector, allowTransitions) => {
-      const els = window.document.querySelectorAll(selector);
-      for (let i=0; i < els.length; i++) {
-        const el = els[i];
-        if (allowTransitions) {
-          el.classList.remove('notransition');
-        } else {
-          el.classList.add('notransition');
-        }
-      }
-    }
-    const isFileUrl = () => {
-      return window.location.protocol === 'file:';
-    }
-    const hasAlternateSentinel = () => {
-      let styleSentinel = getColorSchemeSentinel();
-      if (styleSentinel !== null) {
-        return styleSentinel === "alternate";
-      } else {
-        return false;
-      }
-    }
-    const setStyleSentinel = (alternate) => {
-      const value = alternate ? "alternate" : "default";
-      if (!isFileUrl()) {
-        window.localStorage.setItem("quarto-color-scheme", value);
-      } else {
-        localAlternateSentinel = value;
-      }
-    }
-    const getColorSchemeSentinel = () => {
-      if (!isFileUrl()) {
-        const storageValue = window.localStorage.getItem("quarto-color-scheme");
-        return storageValue != null ? storageValue : localAlternateSentinel;
-      } else {
-        return localAlternateSentinel;
-      }
-    }
-    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-      let newTheme = '';
-      if(authorPrefersDark) {
-        newTheme = isAlternate ? baseTheme : alternateTheme;
-      } else {
-        newTheme = isAlternate ? alternateTheme : baseTheme;
-      }
-      const changeGiscusTheme = () => {
-        // From: https://github.com/giscus/giscus/issues/336
-        const sendMessage = (message) => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
-        sendMessage({
-          setConfig: {
-            theme: newTheme
-          }
-        });
-      }
-      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-      if (isGiscussLoaded) {
-        changeGiscusTheme();
-      }
-    };
-    const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
-      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-    // Dark / light mode switch
-    window.quartoToggleColorScheme = () => {
-      // Read the current dark / light value
-      let toAlternate = !hasAlternateSentinel();
-      toggleColorMode(toAlternate);
-      setStyleSentinel(toAlternate);
-      toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
-    };
-    // Switch to dark mode if need be
-    if (hasAlternateSentinel()) {
-      toggleColorMode(true);
-    } else {
-      toggleColorMode(false);
-    }
-  </script>
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -272,17 +107,16 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Day2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../Day3/day3.html" aria-current="page"> 
+    <a class="nav-link" href="../Day3/day3.html"> 
 <span class="menu-text">Day3</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../Day4/day4.html"> 
+    <a class="nav-link active" href="../Day4/day4.html" aria-current="page"> 
 <span class="menu-text">Day4</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -296,12 +130,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome-to-jupyterlite-integration" id="toc-welcome-to-jupyterlite-integration" class="nav-link active" data-scroll-target="#welcome-to-jupyterlite-integration">Welcome to JupyterLite Integration</a>
+  <li><a href="#live-wsl-bash-terminal" id="toc-live-wsl-bash-terminal" class="nav-link active" data-scroll-target="#live-wsl-bash-terminal">Live WSL Bash Terminal</a>
   <ul class="collapse">
-  <li><a href="#embedded-jupyterlite-repl" id="toc-embedded-jupyterlite-repl" class="nav-link" data-scroll-target="#embedded-jupyterlite-repl">Embedded JupyterLite REPL</a></li>
-  <li><a href="#full-jupyterlab-interface" id="toc-full-jupyterlab-interface" class="nav-link" data-scroll-target="#full-jupyterlab-interface">Full JupyterLab Interface</a></li>
+  <li><a href="#terminal-interface" id="toc-terminal-interface" class="nav-link" data-scroll-target="#terminal-interface">Terminal Interface</a></li>
   <li><a href="#usage-instructions" id="toc-usage-instructions" class="nav-link" data-scroll-target="#usage-instructions">Usage Instructions</a></li>
-  <li><a href="#custom-jupyterlite-deployment" id="toc-custom-jupyterlite-deployment" class="nav-link" data-scroll-target="#custom-jupyterlite-deployment">Custom JupyterLite Deployment</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -309,10 +141,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Interactive Python with JupyterLite</h1>
+<h1 class="title">Interactive Bash Terminal</h1>
 </div>
 
 
@@ -329,34 +160,85 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome-to-jupyterlite-integration" class="level2">
-<h2 class="anchored" data-anchor-id="welcome-to-jupyterlite-integration">Welcome to JupyterLite Integration</h2>
-<p>This document demonstrates how to embed a full JupyterLite environment in your Quarto website.</p>
-<section id="embedded-jupyterlite-repl" class="level3">
-<h3 class="anchored" data-anchor-id="embedded-jupyterlite-repl">Embedded JupyterLite REPL</h3>
-<p>The following iframe embeds a live Python REPL powered by JupyterLite:</p>
-<iframe src="https://jupyterlite.github.io/demo/repl/index.html?kernel=python&amp;toolbar=1" width="100%" height="600px" style="border: 1px solid #ccc; border-radius: 4px;">
-</iframe>
-</section>
-<section id="full-jupyterlab-interface" class="level3">
-<h3 class="anchored" data-anchor-id="full-jupyterlab-interface">Full JupyterLab Interface</h3>
-<p>For a complete notebook experience, you can embed the full JupyterLab interface:</p>
-<iframe src="https://jupyterlite.github.io/demo/lab/index.html" width="100%" height="700px" style="border: 1px solid #ccc; border-radius: 4px;">
-</iframe>
+<section id="live-wsl-bash-terminal" class="level2">
+<h2 class="anchored" data-anchor-id="live-wsl-bash-terminal">Live WSL Bash Terminal</h2>
+<p>This page provides direct access to your WSL bash environment through a web-based terminal powered by ttyd.</p>
+<section id="terminal-interface" class="level3">
+<h3 class="anchored" data-anchor-id="terminal-interface">Terminal Interface</h3>
+<div class="terminal-container" onclick="document.getElementById('terminal-iframe').focus()">
+<p><iframe src="http://localhost:7681" class="terminal-frame" id="terminal-iframe" title="Interactive Bash Terminal" sandbox="allow-same-origin allow-scripts allow-forms allow-pointer-lock allow-modals allow-popups" allow="clipboard-read; clipboard-write" frameborder="0"> </iframe></p>
+</div>
+<script>
+function resizeTerminal(size) {
+  const iframe = document.getElementById('terminal-iframe');
+  const container = document.querySelector('.terminal-container');
+  
+  switch(size) {
+    case 'small':
+      iframe.style.height = '300px';
+      container.style.width = '80%';
+      break;
+    case 'medium':
+      iframe.style.height = '500px';
+      container.style.width = '90%';
+      break;
+    case 'large':
+      iframe.style.height = '700px';
+      container.style.width = '100%';
+      break;
+    case 'fullscreen':
+      iframe.style.height = '80vh';
+      container.style.width = '100vw';
+      container.style.position = 'fixed';
+      container.style.top = '0';
+      container.style.left = '0';
+      container.style.zIndex = '9999';
+      break;
+  }
+}
+
+// Enhanced focus handling
+window.addEventListener('load', function() {
+  const iframe = document.getElementById('terminal-iframe');
+  
+  iframe.focus();
+  
+  iframe.addEventListener('click', function() {
+    this.focus();
+  });
+  
+  iframe.onload = function() {
+    try {
+      this.contentWindow.focus();
+    } catch(e) {
+      console.log('Cannot focus iframe content due to cross-origin restrictions');
+    }
+  };
+});
+</script>
 </section>
 <section id="usage-instructions" class="level3">
 <h3 class="anchored" data-anchor-id="usage-instructions">Usage Instructions</h3>
-<ol type="1">
-<li><strong>REPL Mode</strong>: Use the first embed for quick Python code execution and testing</li>
-<li><strong>Full Lab Mode</strong>: Use the second embed for complete notebook functionality</li>
-<li><strong>Packages Available</strong>: Includes NumPy, Pandas, Matplotlib, Plotly, and more via Pyodide</li>
-</ol>
-</section>
-<section id="custom-jupyterlite-deployment" class="level3">
-<h3 class="anchored" data-anchor-id="custom-jupyterlite-deployment">Custom JupyterLite Deployment</h3>
-<p>If you want to use your own JupyterLite deployment, simply replace the <code>src</code> URL:</p>
-<iframe src="YOUR_JUPYTERLITE_URL_HERE/repl/index.html?kernel=python" width="100%" height="600px" style="border: 1px solid #ccc; border-radius: 4px;">
-</iframe>
+<ul>
+<li><strong>Click inside the terminal</strong> to start typing commands</li>
+<li><strong>Use resize buttons</strong> above the terminal to adjust size<br>
+</li>
+<li><strong>Right-click</strong> in terminal for copy/paste options</li>
+<li><strong>Press F11</strong> in the iframe for full browser terminal mode</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Troubleshooting</strong>: If the terminal doesn’t respond to input: 1. <strong>MOST IMPORTANT</strong>: Ensure ttyd is running with writable mode: <code>ttyd -W -p 7681 bash</code> 2. Try refreshing the page 3. Click directly in the terminal area 4. Check that port 7681 is accessible</p>
+</div>
+</div>
 
 
 </section>
@@ -365,19 +247,6 @@ ul.task-list li input[type="checkbox"] {
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    // Ensure there is a toggle, if there isn't float one in the top right
-    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-      const i = window.document.createElement("i");
-      i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
-    }
-    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

@@ -152,5 +152,33 @@
     "title": "Interactive Python with JupyterLite",
     "section": "",
     "text": "This document demonstrates how to embed a full JupyterLite environment in your Quarto website.\n\n\nThe following iframe embeds a live Python REPL powered by JupyterLite:\n\n\n\n\n\nFor a complete notebook experience, you can embed the full JupyterLab interface:\n\n\n\n\n\n\nREPL Mode: Use the first embed for quick Python code execution and testing\nFull Lab Mode: Use the second embed for complete notebook functionality\nPackages Available: Includes NumPy, Pandas, Matplotlib, Plotly, and more via Pyodide\n\n\n\n\nIf you want to use your own JupyterLite deployment, simply replace the src URL:"
+  },
+  {
+    "objectID": "Day4/day4.html",
+    "href": "Day4/day4.html",
+    "title": "Interactive Bash Terminal",
+    "section": "",
+    "text": "This page provides direct access to your WSL bash environment through a web-based terminal powered by ttyd.\n\n\n\n \n\n\n\n\n\n\nClick inside the terminal to start typing commands\nUse resize buttons above the terminal to adjust size\n\nRight-click in terminal for copy/paste options\nPress F11 in the iframe for full browser terminal mode\n\n\n\n\n\n\n\nWarning\n\n\n\nTroubleshooting: If the terminal doesn’t respond to input: 1. MOST IMPORTANT: Ensure ttyd is running with writable mode: ttyd -W -p 7681 bash 2. Try refreshing the page 3. Click directly in the terminal area 4. Check that port 7681 is accessible"
+  },
+  {
+    "objectID": "Day4/day4.html#live-wsl-bash-terminal",
+    "href": "Day4/day4.html#live-wsl-bash-terminal",
+    "title": "Interactive Bash Terminal",
+    "section": "",
+    "text": "This page provides direct access to your WSL bash environment through a web-based terminal powered by ttyd.\n\n\n\n \n\n\n\n\n\n\nClick inside the terminal to start typing commands\nUse resize buttons above the terminal to adjust size\n\nRight-click in terminal for copy/paste options\nPress F11 in the iframe for full browser terminal mode\n\n\n\n\n\n\n\nWarning\n\n\n\nTroubleshooting: If the terminal doesn’t respond to input: 1. MOST IMPORTANT: Ensure ttyd is running with writable mode: ttyd -W -p 7681 bash 2. Try refreshing the page 3. Click directly in the terminal area 4. Check that port 7681 is accessible"
+  },
+  {
+    "objectID": "Day4/day4.html#interactive-development-terminal",
+    "href": "Day4/day4.html#interactive-development-terminal",
+    "title": "Development Environment",
+    "section": "",
+    "text": "Choose your preferred terminal interface:\n\nBash TerminalFile Manager\n\n\n\n\n&lt;div class=\"terminal-buttons\"&gt;\n  &lt;span class=\"btn-close\"&gt;&lt;/span&gt;\n  &lt;span class=\"btn-minimize\"&gt;&lt;/span&gt;\n  &lt;span class=\"btn-maximize\"&gt;&lt;/span&gt;\n&lt;/div&gt;\n&lt;div class=\"terminal-title\"&gt;WSL Bash - Interactive Shell&lt;/div&gt;\n\n \n\n\n\n\n\n&lt;div class=\"terminal-buttons\"&gt;\n  &lt;span class=\"btn-close\"&gt;&lt;/span&gt;\n  &lt;span class=\"btn-minimize\"&gt;&lt;/span&gt;\n  &lt;span class=\"btn-maximize\"&gt;&lt;/span&gt;\n&lt;/div&gt;\n&lt;div class=\"terminal-title\"&gt;File Browser&lt;/div&gt;\n\n \n\n\n\n\n\n\n\n\n&lt;h4&gt;System Info&lt;/h4&gt;\n&lt;code&gt;uname -a && lsb_release -a&lt;/code&gt;\n\n\n&lt;h4&gt;Directory Listing&lt;/h4&gt;\n&lt;code&gt;ls -la&lt;/code&gt;\n\n\n&lt;h4&gt;Process Monitor&lt;/h4&gt;\n&lt;code&gt;htop&lt;/code&gt;\n\n\n&lt;h4&gt;Git Status&lt;/h4&gt;\n&lt;code&gt;git status&lt;/code&gt;"
+  },
+  {
+    "objectID": "terminal-sidebar.html",
+    "href": "terminal-sidebar.html",
+    "title": "GCP by HRM",
+    "section": "",
+    "text": "&lt;h4&gt;WSL Terminal&lt;/h4&gt;\n&lt;button id=\"close-terminal\" class=\"close-btn\"&gt;&times;&lt;/button&gt;\n\n\n&lt;iframe \n  src=\"http://localhost:7681\" \n  class=\"terminal-frame\"\n  id=\"terminal-iframe\"\n  title=\"Interactive Bash Terminal\"\n  sandbox=\"allow-same-origin allow-scripts allow-forms allow-pointer-lock allow-modals allow-popups\"\n  allow=\"clipboard-read; clipboard-write\"\n  frameborder=\"0\"&gt;\n&lt;/iframe&gt;\n\n\n\n⚡ Terminal"
   }
 ]

@@ -1,0 +1,227 @@
+---
+title: ""
+format: html
+---
+
+<div id="terminal-sidebar" class="terminal-sidebar hidden">
+  <div class="sidebar-header">
+    <h4>WSL Terminal</h4>
+    <button id="close-terminal" class="close-btn">&times;</button>
+  </div>
+  <div class="terminal-container">
+    <iframe 
+      src="http://localhost:7681" 
+      class="terminal-frame"
+      id="terminal-iframe"
+      title="Interactive Bash Terminal"
+      sandbox="allow-same-origin allow-scripts allow-forms allow-pointer-lock allow-modals allow-popups"
+      allow="clipboard-read; clipboard-write"
+      frameborder="0">
+    </iframe>
+  </div>
+</div>
+
+<button id="toggle-terminal" class="terminal-toggle-btn">
+  <span class="toggle-icon">⚡</span> Terminal
+</button>
+
+<style>
+.terminal-sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 400px;
+  height: 100vh;
+  background: #1e1e1e;
+  border-left: 2px solid #333;
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-sidebar.visible {
+  transform: translateX(0);
+}
+
+.terminal-sidebar.hidden {
+  transform: translateX(100%);
+}
+
+.sidebar-header {
+  background: #2d2d2d;
+  padding: 10px 15px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-header h4 {
+  color: #fff;
+  margin: 0;
+  font-size: 14px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: #ff4444;
+  border-radius: 3px;
+}
+
+.terminal-container {
+  flex: 1;
+  padding: 10px;
+}
+
+.terminal-frame {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: #000;
+}
+
+.terminal-toggle-btn {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  background: #007acc;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1001;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.terminal-toggle-btn:hover {
+  background: #005999;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.toggle-icon {
+  font-size: 16px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .terminal-sidebar {
+    width: 100vw;
+  }
+  
+  .terminal-toggle-btn {
+    right: 10px;
+    top: 10px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+/* Overlay for mobile */
+.terminal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+  display: none;
+}
+
+.terminal-overlay.visible {
+  display: block;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sidebar = document.getElementById('terminal-sidebar');
+  const toggleBtn = document.getElementById('toggle-terminal');
+  const closeBtn = document.getElementById('close-terminal');
+  const iframe = document.getElementById('terminal-iframe');
+  
+  // Create overlay for mobile
+  const overlay = document.createElement('div');
+  overlay.className = 'terminal-overlay';
+  overlay.id = 'terminal-overlay';
+  document.body.appendChild(overlay);
+  
+  function openSidebar() {
+    sidebar.classList.remove('hidden');
+    sidebar.classList.add('visible');
+    
+    // Show overlay on mobile
+    if (window.innerWidth <= 768) {
+      overlay.classList.add('visible');
+    }
+    
+    // Focus terminal
+    setTimeout(() => {
+      iframe.focus();
+      try {
+        iframe.contentWindow.focus();
+      } catch(e) {
+        console.log('Cannot focus iframe content');
+      }
+    }, 300);
+  }
+  
+  function closeSidebar() {
+    sidebar.classList.remove('visible');
+    sidebar.classList.add('hidden');
+    overlay.classList.remove('visible');
+  }
+  
+  // Toggle button click
+  toggleBtn.addEventListener('click', function() {
+    if (sidebar.classList.contains('visible')) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
+  });
+  
+  // Close button click
+  closeBtn.addEventListener('click', closeSidebar);
+  
+  // Close on overlay click (mobile)
+  overlay.addEventListener('click', closeSidebar);
+  
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && sidebar.classList.contains('visible')) {
+      closeSidebar();
+    }
+  });
+  
+  // Handle window resize
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      overlay.classList.remove('visible');
+    }
+  });
+});
+</script>
