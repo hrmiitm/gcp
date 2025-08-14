@@ -6,7 +6,13 @@ format:
   revealjs:
     theme: [default, day1.css]
     slide-number: true
-    chalkboard: true
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 2          # Increased from 1 for better visibility
+      chalk-width: 0               # Reduced from 20 for smoother lines
+      chalk-effect: 0.0            # Added subtle chalk texture
+      buttons: false
+      src: "chalkboard(2).json"
     preview-links: auto
     logo: "https://cloud.google.com/_static/cloud/images/cloud-logo.svg"
     css: day1.css
