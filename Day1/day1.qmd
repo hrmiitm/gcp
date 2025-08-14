@@ -1,0 +1,490 @@
+---
+title: "📚 Google Cloud Platform (GCP) - Complete Introduction"
+subtitle: "Day 1: Cloud Computing Fundamentals"
+author: "GCP Learning Journey"
+format:
+  revealjs:
+    theme: [default, day1.css]
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+    logo: "https://cloud.google.com/_static/cloud/images/cloud-logo.svg"
+    css: day1.css
+    navigation-mode: vertical
+    controls-layout: bottom-right
+    transition: slide
+    background-transition: fade
+---
+
+## 🌟 Welcome to GCP Journey! {.center}
+
+::: {.fragment}
+### What We'll Cover Today
+- 🌐 Cloud Computing Fundamentals
+- ☁️ Cloud Deployment Models  
+- 🏆 GCP vs Competitors
+- 💳 Free Tier & Pricing
+- 🔧 Essential Vocabulary
+- 🎯 Interview Preparation
+:::
+
+---
+
+# 🌐 What is Cloud Computing?
+
+## 🏢 The Problem Before Cloud (Pre-2010) {.smaller}
+
+::: {.columns}
+::: {.column width="50%"}
+### Traditional Challenges
+- 💰 Expensive physical servers
+- 🏗️ Data center setup
+- 🔧 System administration teams
+- 🌡️ Temperature control systems
+- 🔌 Networking infrastructure
+:::
+
+::: {.column width="50%"}
+### Result
+::: {.fragment .highlight-red}
+**More than 50% effort on infrastructure**
+:::
+::: {.fragment .highlight-green}
+**Less than 50% on actual application!**
+:::
+:::
+:::
+
+---
+
+## 💡 The Cloud Solution {.center}
+
+::: {.r-stack}
+::: {.fragment .fade-in-then-out}
+### Before Cloud 🏢
+```
+
+Company → Buy Servers → Setup DC → Hire Teams → Build App
+↓         ↓            ↓          ↓         ↓
+💸💸💸     🔧🔧🔧      🌡️🌡️🌡️    👥👥👥    📱
+
+```
+:::
+
+::: {.fragment .fade-in}
+### With Cloud ☁️
+```
+
+Company → Request Resources → Build App → Pay for Usage
+↓            ↓               ↓          ↓
+🚀         ⚡ Instant      📱 Focus    💰 Save
+
+```
+:::
+:::
+
+---
+
+## 📊 Key Benefits of Cloud Computing
+
+::: {.incremental}
+1. **💰 Cost Efficiency** - No upfront infrastructure investment
+2. **📈 Scalability** - Dynamic resource adjustment  
+3. **🔧 Maintenance-Free** - Provider handles everything
+4. **🌍 Global Reach** - Worldwide data centers
+5. **⚡ Speed** - Deploy in minutes, not months
+:::
+
+---
+
+# ☁️ Cloud Deployment Models
+
+## 🌍 Public Cloud {.smaller}
+
+::: {.columns}
+::: {.column width="60%"}
+### Characteristics
+- 🤝 **Shared Resources** among customers
+- 🌐 **Internet Accessible**
+- 👥 **Third-party Managed**
+- 💰 **Most Cost-Effective**
+- 📊 **90% of companies use this**
+:::
+
+::: {.column width="40%"}
+### Examples
+::: {.fragment}
+- ![AWS](https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/250px-Amazon_Web_Services_Logo.svg.png){width="100px"}
+- ![Azure](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_Azure.svg/250px-Microsoft_Azure.svg.png){width="100px"}  
+- ![GCP](https://cloud.google.com/_static/cloud/images/cloud-logo.svg){width="100px"}
+:::
+:::
+:::
+
+---
+
+## 🏛️ Private Cloud {.smaller}
+
+::: {.columns}
+::: {.column width="50%"}
+### Use Cases
+- 🏦 **Banks & Financial Institutions**
+- 🏥 **Healthcare Organizations**  
+- 🏛️ **Government Agencies**
+- 🔒 **High Security Requirements**
+:::
+
+::: {.column width="50%"}
+### Characteristics
+- 🛡️ **Dedicated Resources**
+- 🔐 **Higher Security**
+- 💸 **More Expensive**
+- 🔧 **Self-Maintained**
+:::
+:::
+
+---
+
+## 🔄 Hybrid Cloud Strategy
+
+::: {.r-stack}
+::: {.fragment .current-visible}
+### Smart Data Distribution
+```
+
+graph TB
+A[Company Data] --> B[Sensitive Data]
+A --> C[Non-Critical Data]
+B --> D[Private Cloud 🔒]
+C --> E[Public Cloud 🌍]
+
+    D --> F[Customer Info<br/>Financial Records<br/>Internal Documents]
+    E --> G[Marketing Content<br/>Public Policies<br/>Website Data]
+    ```
+:::
+:::
+
+---
+
+# 🏆 GCP vs AWS vs Azure
+
+## 📈 Market Share Comparison {.center}
+
+::: {.fragment}
+| Provider | Market Share | Strength |
+|----------|-------------|----------|
+| **AWS** 🟧 | 31-33% | 🏆 Largest ecosystem |
+| **Azure** 🔵 | 21-24% | 📈 Fastest growing |
+| **GCP** 🟢 | 11% | 🤖 AI/ML Leadership |
+:::
+
+---
+
+## 🎯 GCP Unique Selling Points
+
+::: {.incremental}
+- **✅ Proven Scalability** - Powers Gmail & YouTube
+- **⚡ Performance Focus** - Billions of concurrent users
+- **🤖 AI/ML Leadership** - Advanced capabilities
+- **💰 Competitive Pricing** - Often more cost-effective
+- **🌐 Global Network** - Google's infrastructure
+:::
+
+::: {.fragment}
+### 🔍 Key Insight
+*All providers offer similar features - competition is about **implementation quality***
+:::
+
+---
+
+# 💳 GCP Free Account & Pricing
+
+## 🎁 Free Tier Benefits {.smaller}
+
+::: {.columns}
+::: {.column width="50%"}
+### 💰 Credits & Trial
+- **$300 free credits** (90 days)
+- **No automatic charging**
+- **Full platform access**
+:::
+
+::: {.column width="50%"}
+### 🆓 Always-Free Products
+- 1 E2-micro instance/month
+- 5GB Cloud Storage
+- BigQuery queries (1TB/month)
+- Cloud Run requests
+- **20+ products included!**
+:::
+:::
+
+---
+
+## ⚠️ Important Limitations {.center}
+
+::: {.fragment .fade-in}
+### 🚨 Watch Out For
+:::
+
+::: {.incremental}
+- ❌ **No monthly rollover** - Use it or lose it
+- 💸 **Charges apply** when exceeding limits  
+- 📊 **Monitor usage** carefully
+- 🏦 **Remove bank auto-debit** for peace of mind
+:::
+
+---
+
+# 🔧 Essential Cloud Vocabulary
+
+## 💻 Virtualization Explained
+
+::: {.r-stack}
+::: {.fragment .current-visible}
+### Physical Server Reality
+```
+
+🖥️ Physical Server (64 CPU, 512GB RAM)
+↓
+👤 One Customer Uses Only 2 CPU, 4GB RAM
+↓
+😢 Massive Resource Waste!
+
+```
+:::
+
+::: {.fragment .current-visible}
+### Virtualization Solution
+```
+
+🖥️ Physical Server (64 CPU, 512GB RAM)
+↓
+⚙️ Hypervisor Layer
+↓
+🖥️ VM1: 2CPU,4GB  🖥️ VM2: 4CPU,8GB  🖥️ VM3: 8CPU,16GB
+Customer A       Customer B        Customer C
+
+```
+:::
+:::
+
+---
+
+## 🔌 Three Ways to Access Applications
+
+::: {.columns}
+::: {.column width="33%"}
+### 🖱️ UI (User Interface)
+- Web browsers
+- Visual interaction
+- Point & click
+- **Best for beginners**
+:::
+
+::: {.column width="33%"}
+### ⌨️ CLI (Command Line)
+- Terminal commands
+- Faster execution
+- Automation friendly
+- **Best for experts**
+:::
+
+::: {.column width="33%"}
+### 🔗 API (Programming)
+- Python, Java, etc.
+- Full automation
+- Integration ready
+- **Best for developers**
+:::
+:::
+
+---
+
+## 🗺️ Regions and Availability Zones
+
+::: {.fragment}
+### 🌍 Geographic Distribution
+```
+
+Region: us-central1 🇺🇸
+├── Zone: us-central1-a (Data Center 1)
+├── Zone: us-central1-b (Data Center 2)
+└── Zone: us-central1-c (Data Center 3)
+
+```
+:::
+
+::: {.fragment}
+### 🎯 Why This Matters
+- **⚡ Low Latency** - Deploy closer to users
+- **🛡️ Disaster Recovery** - Backup locations
+- **📈 High Availability** - 24/7 uptime
+:::
+
+---
+
+## 📈 Performance & Reliability Concepts {.smaller}
+
+::: {.columns}
+::: {.column width="50%"}
+### 📊 Scalability vs Elasticity
+- **Scalability**: Handle more requests
+- **Elasticity**: Auto-scale up/down
+:::
+
+::: {.column width="50%"}
+### 🛡️ Availability vs Fault Tolerance
+- **High Availability**: 24/7 uptime
+- **Fault Tolerance**: Works despite failures
+:::
+:::
+
+::: {.fragment}
+### ⚖️ Load Balancing
+*Distributing requests across multiple application copies*
+```
+
+👥👥👥 Users → ⚖️ Load Balancer → 🖥️🖥️🖥️ App Servers
+
+```
+:::
+
+---
+
+# 🏗️ GCP Resource Hierarchy
+
+## 📊 Organization Structure {.center}
+
+::: {.r-stack}
+::: {.fragment .current-visible}
+### 🆓 Free Account Structure
+```
+
+👤 Google Account
+↓
+📁 Projects
+↓
+⚙️ Resources (VMs, Storage, etc.)
+
+```
+:::
+
+::: {.fragment .current-visible}
+### 🏢 Enterprise Structure
+```
+
+🏢 Google Workspace Organization
+↓
+📂 Folders (Departments)
+↓
+📁 Projects (Teams)
+↓
+⚙️ Resources (Applications)
+
+```
+:::
+:::
+
+---
+
+# 🎯 Interview Questions & Answers
+
+## ❓ Basic Cloud Computing Questions
+
+::: {.fragment}
+### Q1: What is cloud computing and why is it important?
+:::
+
+::: {.fragment}
+**A:** Cloud computing delivers computing services over the internet, eliminating the need for companies to maintain data centers. It reduces costs through pay-as-you-use pricing and provides scalable resources on-demand.
+:::
+
+---
+
+## ❓ Cloud Models Comparison
+
+::: {.fragment}
+### Q2: What are the main differences between public, private, and hybrid cloud?
+:::
+
+::: {.fragment}
+**A:** Public cloud is shared infrastructure by third parties (AWS, GCP), private cloud is dedicated infrastructure for one organization, and hybrid cloud combines both - using private for sensitive data and public for non-critical workloads.
+:::
+
+---
+
+## ❓ GCP Specific Questions
+
+::: {.fragment}
+### Q3: Why choose GCP over AWS or Azure?
+:::
+
+::: {.fragment}
+**A:** GCP offers proven scalability (powers Gmail/YouTube), strong AI/ML capabilities, competitive pricing, and Google's global network. AWS has largest market share, while Azure integrates well with Microsoft ecosystems.
+:::
+
+---
+
+## ❓ Technical Concepts
+
+::: {.fragment}
+### Q4: What is virtualization in cloud computing?
+:::
+
+::: {.fragment}
+**A:** Virtualization allows multiple virtual machines to run on a single physical server using a hypervisor. It enables cloud providers to efficiently share physical resources among multiple customers while maintaining isolation.
+:::
+
+---
+
+## ❓ Free Tier Questions
+
+::: {.fragment}
+### Q5: Explain GCP's free tier offerings.
+:::
+
+::: {.fragment}
+**A:** GCP offers $300 in free credits for 90 days for new users, plus always-free products including 1 E2-micro instance, 5GB cloud storage, and limited usage of 20+ services. Charges apply only when exceeding these limits.
+:::
+
+---
+
+# 🚀 Next Steps & Key Takeaways
+
+## ✅ What We Learned Today
+
+::: {.incremental}
+- 🌐 **Cloud computing revolutionized** application deployment
+- 🏆 **GCP offers proven scalability** with Google's services as proof
+- 💳 **Free tier provides excellent learning** with $300 credits
+- 🔧 **Understanding vocabulary is essential** for any cloud platform
+- 🎯 **Provider choice depends on needs**, not just features
+:::
+
+---
+
+## 🎯 Action Items for Tomorrow
+
+::: {.fragment}
+### 📋 Practice Tasks
+1. 🖱️ **Explore GCP Console** - Get familiar with UI
+2. ⚙️ **Create a Compute Engine** instance  
+3. 📊 **Monitor resource usage** and billing
+4. ⌨️ **Try Cloud Shell** commands
+5. 📚 **Review today's concepts**
+:::
+
+---
+
+## 🌟 Thank You! {.center}
+
+::: {.fragment}
+### 🚀 Ready for Day 2?
+*Tomorrow: Hands-on with Compute Engine and Storage!*
+:::
+
+::: {.fragment}
+### 📧 Questions?
+*Let's build something amazing with GCP!* ☁️
+:::

@@ -1,0 +1,49 @@
+/*-- scss:defaults --*/
+
+// Custom color scheme
+$theme-red: #ea4335;
+$theme-blue: #4285f4;  
+$theme-yellow: #fbbc04;
+$theme-green: #34a853;
+
+/*-- scss:rules --*/
+
+.reveal {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+// Custom slide backgrounds
+.reveal .slides section[data-background-color] {
+  color: white;
+}
+
+// Highlight classes
+.highlight-red {
+  background-color: $theme-red;
+  color: white;
+  padding: 0.2em;
+  border-radius: 0.2em;
+}
+
+.highlight-green {
+  background-color: $theme-green;
+  color: white;
+  padding: 0.2em;
+  border-radius: 0.2em;
+}
+
+// Center content
+.center {
+  text-align: center;
+}
+
+// Smaller text utility
+.smaller {
+  font-size: 0.8em;
+}
+
+// Fragment animations
+.reveal .slides .fragment.highlight-current-red.current-fragment {
+  color: $theme-red;
+  font-weight: bold;
+}

@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "GCP by HRM"
@@ -8,12 +9,16 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - href: Day1/day1.qmd
+        text: Day1
 
 format:
   html:
     theme:
-      - cosmo
-      - brand
+      light: 
+        - cosmo
+      dark:
+        - sketchy
     css: styles.css
     toc: true
 
