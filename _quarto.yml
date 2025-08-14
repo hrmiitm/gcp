@@ -11,6 +11,10 @@ website:
       - about.qmd
       - href: Day1/day1.qmd
         text: Day1
+      - href: Day2/out.qmd
+        text: Day2
+      - href: Day3/day3.qmd
+        text: Day3
 
 format:
   html:

@@ -124,5 +124,33 @@
     "title": "📚 Google Cloud Platform (GCP) - Complete Introduction",
     "section": "🌟 Thank You!",
     "text": "🌟 Thank You!\n\n🚀 Ready for Day 2?\nTomorrow: Hands-on with Compute Engine and Storage!\n\n\n📧 Questions?\nLet’s build something amazing with GCP! ☁️"
+  },
+  {
+    "objectID": "Day3/day3.html#interactive-gcp-commands",
+    "href": "Day3/day3.html#interactive-gcp-commands",
+    "title": "GCP with Interactive Terminal",
+    "section": "💻 Interactive GCP Commands",
+    "text": "💻 Interactive GCP Commands"
+  },
+  {
+    "objectID": "Day3/day3.html#gcp-command-practice",
+    "href": "Day3/day3.html#gcp-command-practice",
+    "title": "GCP with Interactive Terminal",
+    "section": "📝 GCP Command Practice",
+    "text": "📝 GCP Command Practice\n\nCommand"
+  },
+  {
+    "objectID": "Day3/day3.html",
+    "href": "Day3/day3.html",
+    "title": "Interactive Python with JupyterLite",
+    "section": "",
+    "text": "This document demonstrates how to embed a full JupyterLite environment in your Quarto website.\n\n\nThe following iframe embeds a live Python REPL powered by JupyterLite:\n\n\n\n\n\nFor a complete notebook experience, you can embed the full JupyterLab interface:\n\n\n\n\n\n\nREPL Mode: Use the first embed for quick Python code execution and testing\nFull Lab Mode: Use the second embed for complete notebook functionality\nPackages Available: Includes NumPy, Pandas, Matplotlib, Plotly, and more via Pyodide\n\n\n\n\nIf you want to use your own JupyterLite deployment, simply replace the src URL:"
+  },
+  {
+    "objectID": "Day3/day3.html#welcome-to-jupyterlite-integration",
+    "href": "Day3/day3.html#welcome-to-jupyterlite-integration",
+    "title": "Interactive Python with JupyterLite",
+    "section": "",
+    "text": "This document demonstrates how to embed a full JupyterLite environment in your Quarto website.\n\n\nThe following iframe embeds a live Python REPL powered by JupyterLite:\n\n\n\n\n\nFor a complete notebook experience, you can embed the full JupyterLab interface:\n\n\n\n\n\n\nREPL Mode: Use the first embed for quick Python code execution and testing\nFull Lab Mode: Use the second embed for complete notebook functionality\nPackages Available: Includes NumPy, Pandas, Matplotlib, Plotly, and more via Pyodide\n\n\n\n\nIf you want to use your own JupyterLite deployment, simply replace the src URL:"
   }
 ]

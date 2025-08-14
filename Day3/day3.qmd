@@ -1,0 +1,47 @@
+---
+title: "Interactive Python with JupyterLite"
+format: html
+---
+
+## Welcome to JupyterLite Integration
+
+This document demonstrates how to embed a full JupyterLite environment in your Quarto website.
+
+### Embedded JupyterLite REPL
+
+The following iframe embeds a live Python REPL powered by JupyterLite:
+
+<iframe 
+  src="https://jupyterlite.github.io/demo/repl/index.html?kernel=python&toolbar=1" 
+  width="100%" 
+  height="600px"
+  style="border: 1px solid #ccc; border-radius: 4px;">
+</iframe>
+
+### Full JupyterLab Interface
+
+For a complete notebook experience, you can embed the full JupyterLab interface:
+
+<iframe 
+  src="https://jupyterlite.github.io/demo/lab/index.html" 
+  width="100%" 
+  height="700px"
+  style="border: 1px solid #ccc; border-radius: 4px;">
+</iframe>
+
+### Usage Instructions
+
+1. **REPL Mode**: Use the first embed for quick Python code execution and testing
+2. **Full Lab Mode**: Use the second embed for complete notebook functionality
+3. **Packages Available**: Includes NumPy, Pandas, Matplotlib, Plotly, and more via Pyodide
+
+### Custom JupyterLite Deployment
+
+If you want to use your own JupyterLite deployment, simply replace the `src` URL:
+
+<iframe 
+  src="YOUR_JUPYTERLITE_URL_HERE/repl/index.html?kernel=python" 
+  width="100%" 
+  height="600px"
+  style="border: 1px solid #ccc; border-radius: 4px;">
+</iframe>

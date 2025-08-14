@@ -1,0 +1,461 @@
+---
+title: "Presentation Title"
+author: "Author"
+format: 
+  revealjs:
+    width: 1600
+    height: 900
+    logo: img/logo.png
+    footer: "Organization"
+    incremental: true
+    theme: [default]
+    slide-number: true
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 2          # Increased from 1 for better visibility
+      chalk-width: 0               # Reduced from 20 for smoother lines
+      chalk-effect: 0.0            # Added subtle chalk texture
+      buttons: false
+    preview-links: auto
+---
+# Linux & Git
+
+# Hritik Roshan Maurya
+
+
+---
+
+
+# Motivation
+
+<img src="img/1_LinuxGit_0.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_1.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_2.png" style="max-width:800px;" />
+
+
+---
+
+
+<img src="img/1_LinuxGit_3.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_4.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_5.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_6.png" style="max-width:800px;" />
+
+
+---
+
+
+# Table of Content
+
+6\. Authentication Methods
+
+7\. Git and Github Setup
+
+Install Git
+
+Token Setup
+
+SSH setup
+
+add commit push
+
+1\. Virtualization and Hypervisors
+
+2\. Linux Setup
+
+3\. Basic Of Linux
+
+Intro To Its File System
+
+Navigating Directories
+
+File Management
+
+File Editing
+
+Commands Redirection and Piping
+
+4\. Python and Bash Scripting
+
+Variables
+
+Permissions
+
+Export\, Bash Script Running
+
+Argument Passing in Python and Bash Script
+
+5\. BASHRC file and Environment Variables
+
+
+---
+
+
+# Topic-1: Virtualization And Hypervisor
+
+<img src="img/1_LinuxGit_7.png" style="max-width:800px;" />
+
+Operating System
+
+Topic1: Virtualization And Hypervisor
+
+
+---
+
+
+<img src="img/1_LinuxGit_8.png" style="max-width:800px;" />
+
+Operating System
+
+Topic1: Virtualization And Hypervisor
+
+
+---
+
+
+# Questions
+
+<img src="img/1_LinuxGit_9.png" style="max-width:800px;" />
+
+Is Dual Boot is a type of Virtualization?
+
+Is wsl is a type1 hypervisor or type2 hypervisor?
+
+Is cloud provider uses type1 hypervisor or type2 hypervisor?
+
+Topic1: Virtualization And Hypervisor
+
+
+---
+
+
+# Tasks To Do
+
+<img src="img/1_LinuxGit_10.png" style="max-width:800px;" />
+
+How to enable virtualization in our computers?
+
+Basics Setups for wsl and ssh?
+
+Topic1: Virtualization And Hypervisor
+
+
+---
+
+
+# Topic-2: Linux setup
+
+Windows \+ Hyper\-V
+
+Topic2: Linux Setup
+
+
+---
+
+
+# Tasks To do
+
+Check WSL version?
+
+Update WSL?
+
+Know Available Linux Online?
+
+Install Linux ?
+
+Setup It By entering username password and open Ubuntu
+
+Update its repository?
+
+Uninstall Linux?
+
+<img src="img/1_LinuxGit_11.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_12.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_13.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_14.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_15.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_16.png" style="max-width:800px;" />
+
+Topic2: Linux Setup
+
+
+---
+
+
+# Sudo apt Update vs sudo apt upgrade
+
+Topic2: Linux Setup
+
+
+---
+
+
+
+---
+
+
+# Topic-3 Basics of Linux
+
+Intro To Its File System
+
+Navigating Directories
+
+File Management
+
+File Editing
+
+Commands Redirection and Piping
+
+Topic3: Basic Of Linux
+
+
+---
+
+
+# Linux
+
+<img src="img/1_LinuxGit_17.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_18.png" style="max-width:800px;" />
+
+Topic3: Basic Of Linux
+
+
+---
+
+
+Navigating Directories
+
+
+
+* Decode the Linux Path
+  * /xyz/abc/pqr
+  * \./xyz/abc/pqr
+  * ~/xyz/abc/pqr
+* Navigate the Linux Path from this windows path
+* Know your current Location
+
+
+<img src="img/1_LinuxGit_19.png" style="max-width:800px;" />
+
+Topic3: Basic Of Linux
+
+
+---
+
+
+File Mangement and Editing
+
+<img src="img/1_LinuxGit_20.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_21.png" style="max-width:800px;" />
+
+Topic3: Basic Of Linux
+
+
+---
+
+
+<img src="img/1_LinuxGit_22.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_23.png" style="max-width:800px;" />
+
+Topic3: Basic Of Linux
+
+
+---
+
+
+<img src="img/1_LinuxGit_24.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_25.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_26.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_27.png" style="max-width:800px;" />
+
+Topic3: Basic Of Linux
+
+
+---
+
+
+# Topic-4 Python and bash scripting
+
+Variables
+
+Permissions
+
+Export and Bash Script Running
+
+Argument Passing
+
+Topic4: Python and Bash Scripting
+
+
+---
+
+
+<img src="img/1_LinuxGit_28.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_29.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_30.png" style="max-width:800px;" />
+
+Topic4: Python and Bash Scripting
+
+
+---
+
+
+<img src="img/1_LinuxGit_31.png" style="max-width:800px;" />
+
+Topic4: Python and Bash Scripting
+
+
+---
+
+
+# Confusions
+
+<span style="color:#ff0000">si\.sh </span> vs  <span style="color:#ff0000">\./si\.sh </span> vs cd  <span style="color:#ff0000">\./sh\.sh</span>
+
+<span style="color:#ff0000">var1=100 </span> vs  <span style="color:#ff0000">export var1=100</span>
+
+<img src="img/1_LinuxGit_32.png" style="max-width:800px;" />
+
+Topic4: Python and Bash Scripting
+
+
+---
+
+
+<span style="color:#ff0000">si\.sh </span> vs  <span style="color:#ff0000">\./si\.sh </span> vs cd  <span style="color:#ff0000">\./sh\.sh</span>
+
+<span style="color:#ff0000">var1=100 </span> vs  <span style="color:#ff0000">export var1=100</span>
+
+<img src="img/1_LinuxGit_33.png" style="max-width:800px;" />
+
+Topic4: Python and Bash Scripting
+
+
+---
+
+
+# Topic-5 BASHRC and Environment Variables
+
+<img src="img/1_LinuxGit_34.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_35.png" style="max-width:800px;" />
+
+
+
+* Edit Bashrc
+* Some Uses
+* Path Variable
+  * Locate
+  * Know
+  * Set
+* Environment Variables
+
+
+<img src="img/1_LinuxGit_36.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_37.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_38.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_39.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_40.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_41.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_42.png" style="max-width:800px;" />
+
+Topic5: BASHRC and Environment Variables
+
+
+---
+
+
+# Tasks To do
+
+<img src="img/1_LinuxGit_43.png" style="max-width:800px;" />
+
+Topic5: BASHRC and Environment Variables
+
+
+---
+
+
+# Summary Linux
+
+Summary till now
+
+
+---
+
+
+Summary till now
+
+
+---
+
+
+# Topic-6 authentication Methods
+
+USERNAME PASSWORD					Public Private key
+
+Topic6: Authentication Methods
+
+
+---
+
+
+# Topic-7 Git and Github
+
+
+
+* Install
+* Config
+* Method 1: Generate Token
+  * Clone
+  * Add\, commit\, push
+* Method 2: Generate SSH Key
+  * Clone
+  * Add\, commit\, push
+
+
+<img src="img/1_LinuxGit_44.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_45.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_46.png" style="max-width:800px;" />
+
+<img src="img/1_LinuxGit_47.png" style="max-width:800px;" />
+
+Topic6: Git And Github
+
+
+---
+
+
+Topic4: Python and Bash Scripting
+
+
+---
+
+
+# Thank You
+
